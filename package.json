@@ -1,0 +1,16 @@
+{
+  "name": "jotc_app",
+  "version": "1.0.0",
+  "description": "Jumping on the Clouds app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Tiago Conceição",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.8.2",
+    "gulp": "^4.0.2",
+    "gulp-livereload": "^4.0.2"
+  }
+}

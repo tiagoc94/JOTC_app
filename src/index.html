@@ -4,20 +4,30 @@
 
 <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="login/login.css" />
+<link rel="stylesheet" type="text/css" href="jotc/jotc.css" />
 
 <link type="text/html" href="login/login.tpl.html"/>
 
 <script src="app.js"></script>
 <script src="login/loginDirective.js"></script>
+<script src="jotc/jotcDirective.js"></script>
+<script src="classes/user.js"></script>
 
 <body>
 
 <div class="main-app" ng-app="JOTC" ng-controller="myCtrl">
         <div class="app-title">Jumping on the Clouds</div>
-        <div class="login-container">
-                <login user="user"></login>
+        <div class="login-container" ng-show="!loggedIn">
+                <login user="user"
+                        admin-mode="adminMode"
+                        logged-in="loggedIn">
+                </login>
         </div>
-
+        <div class="jotc-container" ng-show="loggedIn">
+                <jotc user="user"
+                       admin-mode="adminMode">
+                </jotc>
+        </div>
 
 </div>
 

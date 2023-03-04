@@ -1,4 +1,5 @@
 (function() {
+    let User;
     /**
      */
     class Login {
@@ -9,10 +10,17 @@
             this.scope = scope;
         }
 
+        onLoginClick() {
+            this.scope.use = new User('tiago', 'conc', 'testEmail', '23/01/1994');
+            this.scope.adminMode = true;
+            this.scope.loggedIn = true;
+        }
     }
 
-    JOTC.directive('login', [
-        function() {
+    angular.module("JOTC").directive('login', [
+        '$injector',
+        function($injector) {
+            User = $injector.get('User');
             return {
                 restrict: 'E',
                 template: '<div>' +
@@ -21,10 +29,12 @@
                             '<input class="login-input" type="text" placeholder="Last Name"><br>' +
                             '<label><b>When were you born?</b></label><br>' +
                             '<input class="login-input" type="date" ><br>' +
-                            '<button class="fancy-button">Login</button>' +
+                            '<button class="fancy-button" ng-click="login.onLoginClick()">Login</button>' +
                         '</div>',
                 scope: {
-                    user: '='
+                    user: '=',
+                    adminMode: '=',
+                    loggedIn: '='
                 },
                 link: (scope) => {
                     scope.login = new Login(scope);

@@ -1,0 +1,18 @@
+.jotc-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.jotc-input {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+.jotc-output {
+    margin-top: 20px;
+}

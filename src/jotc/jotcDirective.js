@@ -32,13 +32,15 @@
                     '  <div>The clouds must be N space-separated binary integers (0 or 1) where the first and last integers must be 0.' +
                     '  0 denotes a safe cloud and 1 denotes a cloud that must be avoided.</div>' +
                     '  <label><b>Clouds (N binary integers describing clouds)</b></label>' +
-                    '  <input class="jotc-input" type="number" ><br>\n' +
+                    '  <input class="jotc-input" type="text" ><br>' +
 
-                    '  <button class="fancy-button" ng-click="jotc.onSubmit()">Submit</button>' +
+                    '  <button class="fancy-button" ng-click="jotc.onSubmit()">Submit</button><br>' +
 
+                    '<div class="jotc-output">' +
                     '  <label><b>Output:</b></label>' +
                     '  <div>{{jotc.output}}</div>' +
-                    '  <div>',
+                    '  <div>' +
+                    '</div>',
                 scope: {
                     user: '=',
                     adminMode: '='

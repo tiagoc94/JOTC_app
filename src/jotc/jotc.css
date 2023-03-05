@@ -16,3 +16,7 @@
 .jotc-output {
     margin-top: 20px;
 }
+
+.invalid {
+    color: red;
+}

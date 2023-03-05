@@ -6,7 +6,7 @@
          * @param {string} firstName
          * @param {string} lastName
          * @param {string} email
-         * @param {string} dateOfBirth
+         * @param {Date} dateOfBirth
          */
         constructor(firstName, lastName, email, dateOfBirth) {
             this.firstName = firstName;

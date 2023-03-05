@@ -97,9 +97,49 @@
             return true;
         }
 
+        /**
+         * @return {number}
+         */
         solve() {
-            // TODO: implement
-            return 5;
+            return this._jump(0, 0);
+        }
+
+        /**
+         * Solves the JOTC problem with recursion
+         * @param {number} currentCloud
+         * @param {number} totalJumps
+         * @return {number}
+         * @private
+         */
+        _jump(currentCloud, totalJumps) {
+            if (currentCloud === this.cloudValues.length - 1) {
+                return totalJumps;
+            }
+
+            const jumpOne = currentCloud + 1;
+            const jumpTwo = currentCloud + 2;
+
+            if (this._canJump(jumpOne) && this._canJump(jumpTwo)) {
+                return Math.min(
+                    this._jump(jumpOne, totalJumps + 1),
+                    this._jump(jumpTwo, totalJumps + 1)
+                );
+            }
+
+            if (this._canJump(jumpOne)) {
+               return this._jump(jumpOne, totalJumps + 1);
+            }
+
+            return this._jump(jumpTwo, totalJumps + 1);
+        }
+
+        /**
+         * @param {number} cloudIndex
+         * @return {boolean}
+         * @private
+         */
+        _canJump(cloudIndex) {
+            return cloudIndex < this.cloudValues.length && this.cloudValues[cloudIndex] === CUMULUS;
         }
     }
 

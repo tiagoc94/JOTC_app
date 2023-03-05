@@ -106,12 +106,12 @@ describe('JOTC Engine', function() {
 
     it('solves the JOTC game', function() {
         let jotcEngine = new JOTCEngine(7, '0 1 0 0 0 1 0');
-        expect(jotcEngine.solve()).toBe(expectedOutput);
+        expect(jotcEngine.solve()).toBe(3);
 
         jotcEngine = new JOTCEngine(7, '0 0 1 0 0 1 0');
-        expect(jotcEngine.solve()).toBe(expectedOutput);
+        expect(jotcEngine.solve()).toBe(4);
 
         jotcEngine = new JOTCEngine(6, '0 0 0 0 1 0');
-        expect(jotcEngine.validateInputs()).toBe(true);
+        expect(jotcEngine.solve()).toBe(3);
     });
 });

@@ -43,6 +43,14 @@
                 this.validEmailField = true;
             });
 
+            this.scope.$watch('login.firstName', () => {
+                this.validFirstNameField = true;
+            });
+
+            this.scope.$watch('login.lastName', () => {
+                this.validLastNameField = true;
+            });
+
             this.scope.$watch('login.dateOfBirth', () => {
                 this.validDateOfBirthField = true;
             });

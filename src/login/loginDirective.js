@@ -9,6 +9,16 @@
          */
         constructor(scope) {
             this.scope = scope;
+            this._init();
+
+            this._setupWatchers();
+            this._setupListeners();
+        }
+
+        /**
+         * @private
+         */
+        _init() {
             this.email = '';
             this.firstName = '';
             this.lastName = '';
@@ -22,8 +32,6 @@
             this.validDateOfBirthField = true;
 
             this.emailVerificationFail = false;
-
-            this._setupWatchers();
         }
 
         /**
@@ -37,6 +45,15 @@
 
             this.scope.$watch('login.dateOfBirth', () => {
                 this.validDateOfBirthField = true;
+            });
+        }
+
+        /**
+         * @private
+         */
+        _setupListeners() {
+            this.scope.$on('loggedOut', () => {
+                this._init();
             });
         }
 

@@ -6,6 +6,10 @@
      */
     class EmailableClient {
 
+        /**
+         * @param {string} email
+         * @return {Promise}
+         */
         verify(email) {
             const params = {
                 email: email,

@@ -21,6 +21,7 @@
             if (inputValidation !== true) {
                 this.valid = false;
                 this.invalidFeedback = inputValidation;
+                this.solution = '';
                 return;
             }
 

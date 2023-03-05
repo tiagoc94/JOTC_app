@@ -4,13 +4,18 @@
   "description": "Jumping on the Clouds app",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "karma start ./karma.conf.js"
   },
   "author": "Tiago Conceição",
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.8.2",
+    "angular-mocks": "^1.8.2",
     "gulp": "^4.0.2",
-    "gulp-livereload": "^4.0.2"
+    "gulp-livereload": "^4.0.2",
+    "jasmine-core": "^4.0.0",
+    "karma": "^6.3.11",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^4.0.1"
   }
 }

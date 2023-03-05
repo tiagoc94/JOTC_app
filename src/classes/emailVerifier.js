@@ -27,7 +27,7 @@
                 } else {
                     EmailableClient.verify(email)
                         .then((response) => {
-                            const value = response.state === 'deliverable';
+                            const value = response.data.state === 'deliverable';
                             this._cacheResponse(email, value);
                             value ? resolve() : reject();
                         });

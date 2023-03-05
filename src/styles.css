@@ -14,4 +14,11 @@
     display: flex;
 }
 
+.welcome-header {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
 

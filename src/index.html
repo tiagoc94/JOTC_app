@@ -20,6 +20,7 @@
 
 <div class="main-app" ng-app="JOTC" ng-controller="myCtrl">
         <div class="app-title">Jumping on the Clouds</div>
+        <div class="welcome-header" ng-show="loggedIn">Welcome {{user.firstName}}</div>
         <div class="login-container" ng-show="!loggedIn">
                 <login user="user"
                         admin-mode="adminMode"

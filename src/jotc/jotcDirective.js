@@ -37,7 +37,7 @@
             return {
                 restrict: 'E',
                 template: '<div>' +
-                    '  <div>Please enter the JOTC inputs.</div>' +
+                    '  <div><b>Please enter the JOTC inputs.</b></div><br>' +
 
                     '  <div>N must be an integer equal or greater than 2 and lesser or equal than 100.</div>' +
                     '  <label><b>Number of clouds (N)</b></label>' +

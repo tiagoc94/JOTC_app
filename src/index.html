@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-<script src="../node_modules/angular/angular.min.js"></script>
+<script src="../node_modules/angular/angular.js"></script>
 
 <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="login/login.css" />
 <link rel="stylesheet" type="text/css" href="jotc/jotc.css" />
-
-<link type="text/html" href="login/login.tpl.html"/>
+<link rel="stylesheet" type="text/css" href="adminInterface/adminInterface.css" />
 
 <script src="app.js"></script>
 <script src="login/loginDirective.js"></script>
 <script src="jotc/jotcDirective.js"></script>
+<script src="adminInterface/adminInterfaceDirective.js"></script>
 <script src="classes/user.js"></script>
 <script src="classes/jotcEngine.js"></script>
 <script src="classes/emailVerifier.js"></script>
@@ -27,16 +27,23 @@
 
         <div class="login-container" ng-show="!loggedIn">
                 <login user="user"
-                        admin-mode="adminMode"
-                        logged-in="loggedIn">
+                       admin-mode="adminMode"
+                       logged-in="loggedIn">
                 </login>
         </div>
+
         <div class="jotc-container" ng-show="loggedIn">
                 <jotc user="user"
-                       admin-mode="adminMode">
+                      admin-mode="adminMode">
                 </jotc>
         </div>
 
+        <hr class="solid" ng-show="adminMode">
+
+        <div class="admin-interface-container" ng-show="adminMode">
+                <admin-interface>
+                </admin-interface>
+        </div>
 </div>
 
 </body>

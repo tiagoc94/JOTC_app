@@ -1,5 +1,6 @@
 (function() {
     const LOCAL_STORAGE_KEY = 'emailCache';
+    const ADMIN_EMAILS = ['d.deege@email.com', 'tiagoconceicao94@email.com'];
     let EmailableClient;
     let $window;
     let $q;
@@ -45,7 +46,7 @@
         }
 
         /**
-         * The email is considered valid f the state response property is 'deliverable'
+         * The email is considered valid if the state response property is 'deliverable'
          * @param {string} email
          * @return {boolean}
          * @private
@@ -73,6 +74,19 @@
         _getCacheState() {
             const cache = $window.localStorage.getItem(LOCAL_STORAGE_KEY);
             return JSON.parse(cache);
+        }
+
+        /**
+         * Simulate a request to a backend that takes 0.5 seconds
+         * @param {string} email
+         * @return {Promise}
+         */
+        isEmailAdmin(email) {
+            return $q((resolve, reject) => {
+                setTimeout(() => {
+                    ADMIN_EMAILS.includes(email) ? resolve() : reject();
+                }, 500);
+            });
         }
     }
 

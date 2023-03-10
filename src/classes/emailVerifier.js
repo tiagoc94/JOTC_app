@@ -23,13 +23,12 @@
         isEmailValid(email) {
             return $q((resolve, reject) => {
                 if (this._isCached(email)) {
-                    this._getCachedValue(email) ? resolve() : reject();
+                    this._checkResponse(email) ? resolve() : reject();
                 } else {
                     EmailableClient.verify(email)
                         .then((response) => {
-                            const value = response.data.state === 'deliverable';
-                            this._cacheResponse(email, value);
-                            value ? resolve() : reject();
+                            this._cacheResponse(email, response.data);
+                            this._checkResponse(email) ? resolve() : reject();
                         });
                 }
             });
@@ -46,23 +45,24 @@
         }
 
         /**
+         * The email is considered valid f the state response property is 'deliverable'
          * @param {string} email
          * @return {boolean}
          * @private
          */
-        _getCachedValue(email) {
+        _checkResponse(email) {
             const cache = this._getCacheState();
-            return cache[email];
+            return cache[email].state === 'deliverable';
         }
 
         /**
          * @param {string} email
-         * @param {boolean} value
+         * @param {boolean} responseData
          * @private
          */
-        _cacheResponse(email, value) {
+        _cacheResponse(email, responseData) {
             const cache = this._getCacheState();
-            cache[email] = value;
+            cache[email] = responseData;
             $window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cache));
         }
 

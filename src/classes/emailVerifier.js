@@ -23,9 +23,6 @@
          */
         isEmailValid(email) {
             return $q((resolve, reject) => {
-                // debug hack
-                 resolve();
-                 return;
                 if (this._isCached(email)) {
                     this._checkResponse(email) ? resolve() : reject();
                 } else {

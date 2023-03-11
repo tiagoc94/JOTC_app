@@ -13,10 +13,6 @@
     margin-bottom: 30px;
 }
 
-.filter-fields {
-
-}
-
 .filter-buttons {
     display: flex;
     flex-direction: column;

@@ -34,16 +34,13 @@
         </div>
 
         <div class="jotc-container" ng-show="loggedIn">
-                <jotc user="user"
-                      admin-mode="adminMode">
-                </jotc>
+                <jotc user="user"></jotc>
         </div>
 
         <hr class="solid" ng-show="loggedIn && adminMode">
 
         <div class="admin-interface-container" ng-show="loggedIn && adminMode">
-                <admin-interface>
-                </admin-interface>
+                <admin-interface></admin-interface>
         </div>
 </div>
 

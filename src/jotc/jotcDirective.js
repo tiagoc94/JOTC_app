@@ -81,8 +81,7 @@
                 restrict: 'E',
                 templateUrl: '/src/jotc/jotc.tpl.html',
                 scope: {
-                    user: '=',
-                    adminMode: '='
+                    user: '='
                 },
                 link: (scope) => {
                     scope.jotc = new Jotc(scope);

@@ -13,8 +13,6 @@
   "devDependencies": {
     "angular": "^1.8.2",
     "angular-mocks": "^1.8.2",
-    "gulp": "^4.0.2",
-    "gulp-livereload": "^4.0.2",
     "http-server": "^14.1.1",
     "live-server": "^1.2.2",
     "jasmine-core": "^4.0.0",

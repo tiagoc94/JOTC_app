@@ -1,4 +1,4 @@
-var JOTC = angular.module("JOTC", []);
+const JOTC = angular.module("JOTC", []);
 JOTC.controller("myCtrl", function($scope) {
 
     $scope.resetApp = () => {

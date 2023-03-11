@@ -1,5 +1,5 @@
 const JOTC = angular.module("JOTC", []);
-JOTC.controller("myCtrl", function($scope) {
+JOTC.controller("appCtrl", function($scope) {
 
     $scope.resetApp = () => {
         $scope.user = null;

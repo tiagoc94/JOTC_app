@@ -80,7 +80,7 @@
             return {
                 restrict: 'E',
                 // Placing the html template directly in here instead of its own file using the "templateUrl" property
-                // to avoid wasting time figuring out how to the directive can access the html in the testing environment.
+                // to avoid wasting time figuring out how the directive can access the html in the testing environment.
                 template: `<div>
                             <div><b>Please enter the JOTC inputs.</b></div><br>
                         

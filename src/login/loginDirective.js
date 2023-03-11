@@ -149,7 +149,7 @@
             return {
                 restrict: 'E',
                 // Placing the html template directly in here instead of its own file using the "templateUrl" property
-                // to avoid wasting time figuring out how to the directive can access the html in the testing environment.
+                // to avoid wasting time figuring out how the directive can access the html in the testing environment.
                 template: `<div>
                             <div ng-show="login.emailVerificationFail" class="feedback-invalid">"{{login.email}}" is not a valid email address.</div>
                             <input class="login-input" ng-class="{'invalid-login': !login.validEmailField}" type="text" placeholder="Email Adress" ng-model="login.email"><br>

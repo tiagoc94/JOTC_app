@@ -39,6 +39,13 @@ describe('Login directive', function() {
         $scope.$digest();
     });
 
+    function populateFieldsWithTestData() {
+        loginDirective.email = 'testEmail';
+        loginDirective.firstName = 'testFirstName';
+        loginDirective.lastName = 'testLastName';
+        loginDirective.dateOfBirth = new Date('1994-01-01');
+    }
+
     it('contains the expected elements', function() {
         expect(loginDirectiveElement.getElementsByTagName('input').length).toBe(4);
         expect(loginDirectiveElement.getElementsByClassName('invalid-login').length).toBe(0);
@@ -79,10 +86,7 @@ describe('Login directive', function() {
             return defer.promise;
         });
 
-        loginDirective.email = 'testEmail';
-        loginDirective.firstName = 'testFirstName';
-        loginDirective.lastName = 'testLastName';
-        loginDirective.dateOfBirth = new Date('1994-01-01')
+        populateFieldsWithTestData();
         $scope.$digest();
         loginDirective.onLoginClick();
         $scope.$digest();
@@ -108,10 +112,7 @@ describe('Login directive', function() {
             return defer.promise;
         });
 
-        loginDirective.email = 'testEmail';
-        loginDirective.firstName = 'testFirstName';
-        loginDirective.lastName = 'testLastName';
-        loginDirective.dateOfBirth = new Date('1994-01-01')
+        populateFieldsWithTestData();
         $scope.$digest();
         loginDirective.onLoginClick();
         $scope.$digest();
@@ -134,10 +135,7 @@ describe('Login directive', function() {
             return defer.promise;
         });
 
-        loginDirective.email = 'testEmail';
-        loginDirective.firstName = 'testFirstName';
-        loginDirective.lastName = 'testLastName';
-        loginDirective.dateOfBirth = new Date('1994-01-01')
+        populateFieldsWithTestData();
         $scope.$digest();
         loginDirective.onLoginClick();
         $scope.$digest();

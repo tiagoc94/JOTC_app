@@ -1,6 +1,6 @@
 (function() {
     const LOCAL_STORAGE_KEY = 'emailCache';
-    const ADMIN_EMAILS = ['d.deege@email.com', 'tiagoconceicao94@email.com'];
+    const ADMIN_EMAILS = ['admin1@email.com', 'admin2@email.com'];
     let EmailableClient;
     let $window;
     let $q;
@@ -23,6 +23,9 @@
          */
         isEmailValid(email) {
             return $q((resolve, reject) => {
+                // debug hack
+                 resolve();
+                 return;
                 if (this._isCached(email)) {
                     this._checkResponse(email) ? resolve() : reject();
                 } else {

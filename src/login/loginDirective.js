@@ -148,7 +148,7 @@
             EmailVerifier = $injector.get('EmailVerifier');
             return {
                 restrict: 'E',
-                templateUrl: 'login.tpl.html',
+                templateUrl: '/src/login/login.tpl.html',
                 scope: {
                     user: '=',
                     adminMode: '=',

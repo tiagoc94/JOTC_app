@@ -1,6 +1,11 @@
 # Jumping on the clouds app
 
-### Notes:
+Web application that shows a web interface for users to enter input for the JOTC (Jumping on the Clouds).
+Features an initial log in screen and an admin console available for authenticated users.
+
+https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
+
+### User authentication:
 
 The user authentication, which will allow access to the admin console, relies on the user's first name. 
 Authenticated first names are "admin1" and "admin2".
@@ -14,13 +19,13 @@ The table scroll in the admin console doesn't work properly in mobile view.
 
 Have npm installed.
 
-### Run the app
+### Running the app
 
 * From the root folder:
 * Run ```npm i```
 * Run ```npm start```
 
-### Run the tests
+### Running the tests
 
 * From the root folder:
 * Run ```npm i``` (skip if done previously)

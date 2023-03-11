@@ -6,7 +6,7 @@
     let $q;
     /**
      */
-    class EmailVerifier {
+    class CredentialsVerifier {
 
         /**
          */
@@ -90,13 +90,13 @@
         }
     }
 
-    angular.module('JOTC').service('EmailVerifier', [
+    angular.module('JOTC').service('CredentialsVerifier', [
         '$injector',
         function($injector) {
             EmailableClient = $injector.get('EmailableClient');
             $window = $injector.get('$window');
             $q = $injector.get('$q');
-            return new EmailVerifier();
+            return new CredentialsVerifier();
         }
     ]);
 })();

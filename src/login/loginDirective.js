@@ -1,6 +1,6 @@
 (function() {
     let User;
-    let EmailVerifier;
+    let CredentialsVerifier;
     /**
      */
     class Login {
@@ -84,7 +84,7 @@
             }
 
             this.pendingEmailCheck = true;
-            EmailVerifier.isEmailValid(this.email)
+            CredentialsVerifier.isEmailValid(this.email)
                 .then(() => {
                     this._loginSuccessfully();
                 }, () => {
@@ -127,7 +127,7 @@
          */
         _loginSuccessfully() {
             this.pendingAdminCheck = true;
-            EmailVerifier.isUserAdmin(this.firstName)
+            CredentialsVerifier.isUserAdmin(this.firstName)
                 .then(() => {
                     this.scope.adminMode = true;
                 }, () => {
@@ -145,7 +145,7 @@
         '$injector',
         function($injector) {
             User = $injector.get('User');
-            EmailVerifier = $injector.get('EmailVerifier');
+            CredentialsVerifier = $injector.get('CredentialsVerifier');
             return {
                 restrict: 'E',
                 // Placing the html template directly in here instead of its own file using the "templateUrl" property

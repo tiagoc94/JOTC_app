@@ -6,7 +6,7 @@ describe('Login directive', function() {
     let loginDirective;
     let $scope;
     let $compile;
-    let EmailVerifier;
+    let CredentialsVerifier;
     let $q;
     let User;
 
@@ -21,7 +21,7 @@ describe('Login directive', function() {
             $rootScope = $injector.get('$rootScope');
             $httpBackend = $injector.get('$httpBackend');
             $compile = $injector.get('$compile');
-            EmailVerifier = $injector.get('EmailVerifier');
+            CredentialsVerifier = $injector.get('CredentialsVerifier');
             $q = $injector.get('$q');
             User = $injector.get('User');
         });
@@ -80,7 +80,7 @@ describe('Login directive', function() {
     });
 
     it('shows user feedback when the email is invalid', function() {
-        spyOn(EmailVerifier, 'isEmailValid').and.callFake(function() {
+        spyOn(CredentialsVerifier, 'isEmailValid').and.callFake(function() {
             const defer = $q.defer();
             defer.reject();
             return defer.promise;
@@ -101,12 +101,12 @@ describe('Login directive', function() {
     });
 
     it('logs in successfully as non authenticated user', function() {
-        spyOn(EmailVerifier, 'isEmailValid').and.callFake(function() {
+        spyOn(CredentialsVerifier, 'isEmailValid').and.callFake(function() {
             const defer = $q.defer();
             defer.resolve();
             return defer.promise;
         });
-        spyOn(EmailVerifier, 'isUserAdmin').and.callFake(function() {
+        spyOn(CredentialsVerifier, 'isUserAdmin').and.callFake(function() {
             const defer = $q.defer();
             defer.reject();
             return defer.promise;
@@ -124,12 +124,12 @@ describe('Login directive', function() {
     });
 
     it('logs in successfully as authenticated user', function() {
-        spyOn(EmailVerifier, 'isEmailValid').and.callFake(function() {
+        spyOn(CredentialsVerifier, 'isEmailValid').and.callFake(function() {
             const defer = $q.defer();
             defer.resolve();
             return defer.promise;
         });
-        spyOn(EmailVerifier, 'isUserAdmin').and.callFake(function() {
+        spyOn(CredentialsVerifier, 'isUserAdmin').and.callFake(function() {
             const defer = $q.defer();
             defer.resolve();
             return defer.promise;

@@ -1,6 +1,6 @@
-describe('EmailVerifier', function() {
+describe('CredentialsVerifier', function() {
     beforeEach(angular.mock.module('JOTC'));
-    let EmailVerifier;
+    let CredentialsVerifier;
     let $window;
     let EmailableClient;
     let $q;
@@ -12,7 +12,7 @@ describe('EmailVerifier', function() {
 
     beforeEach(function() {
         angular.mock.inject(function($injector) {
-            EmailVerifier = $injector.get('EmailVerifier');
+            CredentialsVerifier = $injector.get('CredentialsVerifier');
             $window = $injector.get('$window');
             EmailableClient = $injector.get('EmailableClient');
             $q = $injector.get('$q');
@@ -30,14 +30,14 @@ describe('EmailVerifier', function() {
             return defer.promise;
         });
 
-        EmailVerifier.isEmailValid('test@email')
+        CredentialsVerifier.isEmailValid('test@email')
             .then(angular.noop, () => fail('email was considered invalid'));
 
         $rootScope.$apply();
 
         expect($window.localStorage.setItem).toHaveBeenCalledTimes(1);
 
-        EmailVerifier.isEmailValid('test@email')
+        CredentialsVerifier.isEmailValid('test@email')
             .then(angular.noop, () => fail('email was considered invalid'));
 
         $rootScope.$apply();
@@ -51,7 +51,7 @@ describe('EmailVerifier', function() {
         spyOn($window.localStorage, 'setItem').and.callFake(angular.noop);
         spyOn(EmailableClient, 'verify').and.callFake(angular.noop);
 
-        EmailVerifier.isEmailValid('test@email').then(function(result) {
+        CredentialsVerifier.isEmailValid('test@email').then(function(result) {
             expect(result).toBeTrue();
         });
         expect(EmailableClient.verify).toHaveBeenCalledTimes(0);

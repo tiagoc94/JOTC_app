@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start ./karma.conf.js",
+    "debug": "karma start ./karma.conf.js --browsers=Chrome --single-run=false",
     "start": "live-server"
   },
   "author": "Tiago Conceição",

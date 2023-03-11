@@ -18,6 +18,7 @@ module.exports = function(config) {
       './src/classes/*.js',
       './src/jotc/*.js',
       './src/login/*.js',
+      './src/adminInterface/*.js',
       './tests/*.spec.js'
     ],
 

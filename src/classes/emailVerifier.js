@@ -1,6 +1,6 @@
 (function() {
     const LOCAL_STORAGE_KEY = 'emailCache';
-    const ADMIN_EMAILS = ['admin1@email.com', 'admin2@email.com'];
+    const ADMIN_NAMES = ['admin1', 'admin2'];
     let EmailableClient;
     let $window;
     let $q;
@@ -78,13 +78,13 @@
 
         /**
          * Simulate a request to a backend that takes 0.5 seconds
-         * @param {string} email
+         * @param {string} name
          * @return {Promise}
          */
-        isEmailAdmin(email) {
+        isUserAdmin(name) {
             return $q((resolve, reject) => {
                 setTimeout(() => {
-                    ADMIN_EMAILS.includes(email) ? resolve() : reject();
+                    ADMIN_NAMES.includes(name) ? resolve() : reject();
                 }, 500);
             });
         }

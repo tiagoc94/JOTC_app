@@ -127,7 +127,7 @@
          */
         _loginSuccessfully() {
             this.pendingAdminCheck = true;
-            EmailVerifier.isEmailAdmin(this.email)
+            EmailVerifier.isUserAdmin(this.firstName)
                 .then(() => {
                     this.scope.adminMode = true;
                 }, () => {

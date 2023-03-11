@@ -106,7 +106,7 @@ describe('Login directive', function() {
             defer.resolve();
             return defer.promise;
         });
-        spyOn(EmailVerifier, 'isEmailAdmin').and.callFake(function() {
+        spyOn(EmailVerifier, 'isUserAdmin').and.callFake(function() {
             const defer = $q.defer();
             defer.reject();
             return defer.promise;
@@ -129,7 +129,7 @@ describe('Login directive', function() {
             defer.resolve();
             return defer.promise;
         });
-        spyOn(EmailVerifier, 'isEmailAdmin').and.callFake(function() {
+        spyOn(EmailVerifier, 'isUserAdmin').and.callFake(function() {
             const defer = $q.defer();
             defer.resolve();
             return defer.promise;

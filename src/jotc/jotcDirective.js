@@ -1,5 +1,6 @@
 (function() {
     let JOTCEngine;
+    let JOTCStorage;
     /**
      */
     class Jotc {
@@ -14,6 +15,8 @@
             this.valid = true;
         }
 
+        /**
+         */
         onSolve() {
             const jotcEngine = new JOTCEngine(this.numberOfCloudsInput, this.cloudValueInput);
 
@@ -22,11 +25,32 @@
                 this.valid = false;
                 this.invalidFeedback = inputValidation;
                 this.solution = '';
+
+                this._storeRequest(this.invalidFeedback);
                 return;
             }
 
             this.valid = true;
             this.solution = jotcEngine.solve();
+
+            this._storeRequest(this.solution);
+        }
+
+        /**
+         * @param {string} requestOutput
+         * @private
+         */
+        _storeRequest(requestOutput) {
+            const jotcData = {
+                userName: this.scope.user.getFullName(),
+                email: this.scope.user.email,
+                date: new Date().toISOString().split('T')[0],
+                numberOfClouds: this.numberOfCloudsInput,
+                cloudValues: this.cloudValueInput,
+                output: requestOutput
+            };
+
+            JOTCStorage.store(jotcData);
         }
     }
 
@@ -34,6 +58,7 @@
         '$injector',
         function($injector) {
             JOTCEngine = $injector.get('JOTCEngine');
+            JOTCStorage = $injector.get('JOTCStorage');
             return {
                 restrict: 'E',
                 template: '<div>' +

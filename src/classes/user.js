@@ -15,6 +15,13 @@
             this.dateOfBirth = dateOfBirth;
         }
 
+        /**
+         * @return {string}
+         */
+        getFullName() {
+            return `${this.firstName} ${this.lastName}`;
+        }
+
     }
 
     angular.module("JOTC").factory('User', function() {

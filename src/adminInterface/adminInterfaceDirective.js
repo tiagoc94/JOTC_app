@@ -1,4 +1,5 @@
 (function() {
+    let JOTCStorage;
     /**
      */
     class AdminInterface {
@@ -7,9 +8,7 @@
          */
         constructor(scope) {
             this.scope = scope;
-            this.emailQuery = '';
-            this.dateFilterFrom = null;
-            this.dateFilterTo = null;
+            this.onResetFilters();
 
             this.jotcRequests = [
                 {
@@ -47,7 +46,9 @@
         }
 
         onResetFilters() {
-
+            this.emailQuery = '';
+            this.dateFilterStart = null;
+            this.dateFilterEnd = null;
         }
 
         onSearch() {
@@ -56,8 +57,10 @@
 
     }
 
-    angular.module("JOTC").directive('adminInterface',
-        function() {
+    angular.module("JOTC").directive('adminInterface', [
+        '$injector',
+        function($injector) {
+            JOTCStorage = $injector.get('JOTCStorage');
             return {
                 restrict: 'E',
                 template: '<div>' +
@@ -70,14 +73,14 @@
                         '<div class="filter-fields">' +
                             '<input class="filter-input" type="text" placeholder="Email search" ng-model="adminInterface.emailQuery"><br>' +
                             '<label>Start date:</label><br>' +
-                            '<input class="filter-input" type="date" ng-model="adminInterface.dateFilterFrom"><br>' +
+                            '<input class="filter-input" type="date" ng-model="adminInterface.dateFilterStart"><br>' +
                             '<label>End date:</label><br>' +
-                            '<input class="filter-input" type="date" ng-model="adminInterface.dateFilterTo"><br>' +
+                            '<input class="filter-input" type="date" ng-model="adminInterface.dateFilterEnd"><br>' +
                         '</div>' +
 
                         '<div class="filter-buttons">' +
-                            '<button class="admin-interface-button" ng-click="onResetFilters()">Reset Filters</button>' +
-                            '<button class="admin-interface-button" ng-click="onSearch()">Search</button>' +
+                            '<button class="admin-interface-button" ng-click="adminInterface.onResetFilters()">Reset Filters</button>' +
+                            '<button class="admin-interface-button" ng-click="adminInterface.onSearch()">Search</button>' +
                         '</div>' +
                     '</div>' +
 
@@ -106,5 +109,5 @@
                 }
             };
         }
-    );
+    ]);
 })();

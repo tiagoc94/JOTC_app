@@ -13,7 +13,7 @@
         verify(email) {
             const params = {
                 email: email,
-                api_key: TEST_API_KEY
+                api_key: LIVE_API_KEY
             }
 
             const requestOptions = {

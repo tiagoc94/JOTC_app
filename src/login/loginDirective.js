@@ -148,7 +148,20 @@
             EmailVerifier = $injector.get('EmailVerifier');
             return {
                 restrict: 'E',
-                templateUrl: '/src/login/login.tpl.html',
+                // Placing the html template directly in here instead of its own file using the "templateUrl" property
+                // to avoid wasting time figuring out how to access the html in the testing environment.
+                template: `<div>
+                            <div ng-show="login.emailVerificationFail" class="feedback-invalid">"{{login.email}}" is not a valid email address.</div>
+                            <input class="login-input" ng-class="{'invalid-login': !login.validEmailField}" type="text" placeholder="Email Adress" ng-model="login.email"><br>
+                            <input class="login-input" ng-class="{'invalid-login': !login.validFirstNameField}" type="text" placeholder="First Name" ng-model="login.firstName"><br>
+                            <input class="login-input" ng-class="{'invalid-login': !login.validLastNameField}" type="text" placeholder="Last Name" ng-model="login.lastName"><br>
+                        
+                            <div ng-show="!login.validDateOfBirthField" class="feedback-invalid">You must be over 18 to login.</div>
+                            <label>When were you born?</label><br>
+                            <input class="login-input" ng-class="{'invalid-login': !login.validDateOfBirthField}" type="date" ng-model="login.dateOfBirth"><br>
+                        
+                            <button class="fancy-button" ng-click="login.onLoginClick()">Login</button>
+                        </div>`,
                 scope: {
                     user: '=',
                     adminMode: '=',

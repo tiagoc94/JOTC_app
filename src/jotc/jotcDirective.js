@@ -9,10 +9,28 @@
          */
         constructor(scope) {
             this.scope = scope;
+            this._init();
+            this._setupListeners();
+        }
+
+        /**
+         * @private
+         */
+        _init() {
             this.solution = '';
             this.numberOfCloudsInput = 0;
             this.cloudValueInput = '';
             this.valid = true;
+            this.invalidFeedback = '';
+        }
+
+        /**
+         * @private
+         */
+        _setupListeners() {
+            this.scope.$on('loggedOut', () => {
+                this._init();
+            });
         }
 
         /**

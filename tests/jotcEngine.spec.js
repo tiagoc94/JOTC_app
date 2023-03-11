@@ -113,5 +113,11 @@ describe('JOTC Engine', function() {
 
         jotcEngine = new JOTCEngine(6, '0 0 0 0 1 0');
         expect(jotcEngine.solve()).toBe(3);
+
+        jotcEngine = new JOTCEngine(2, '0 0');
+        expect(jotcEngine.solve()).toBe(1);
+
+        jotcEngine = new JOTCEngine(3, '0 0 0');
+        expect(jotcEngine.solve()).toBe(1);
     });
 });
